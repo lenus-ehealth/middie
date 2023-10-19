@@ -25,7 +25,7 @@ const supportedHooksWithoutPayload = [
 const supportedHooks = [...supportedHooksWithPayload, ...supportedHooksWithoutPayload]
 
 function fastifyMiddie (fastify, options, next) {
-  fastify.decorate('use', use)
+  fastify.decorate('middie', use)
   fastify[kMiddlewares] = []
   fastify[kMiddieHasMiddlewares] = false
   fastify[kMiddie] = Middie(onMiddieEnd)
@@ -89,7 +89,7 @@ function fastifyMiddie (fastify, options, next) {
     instance[kMiddlewares] = []
     instance[kMiddie] = Middie(onMiddieEnd)
     instance[kMiddieHasMiddlewares] = false
-    instance.decorate('use', use)
+    instance.decorate('middie', use)
     for (const middleware of middlewares) {
       instance.use(...middleware)
     }
