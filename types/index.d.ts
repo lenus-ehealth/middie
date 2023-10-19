@@ -4,9 +4,9 @@ import * as http from "http";
 
 declare module "fastify" {
   interface FastifyInstance {
-    use(fn: fastifyMiddie.Handler): this;
-    use(route: string, fn: fastifyMiddie.Handler): this;
-    use(routes: string[], fn: fastifyMiddie.Handler): this;
+    middie(fn: fastifyMiddie.Handler): this;
+    middie(route: string, fn: fastifyMiddie.Handler): this;
+    middie(routes: string[], fn: fastifyMiddie.Handler): this;
   }
 }
 
